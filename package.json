@@ -1,6 +1,6 @@
 {
   "name": "ts-transform-css-modules-next",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Transforms styleName to atomic CSS className using compile time CSS module resolution.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -25,6 +25,7 @@
     "autoprefixer": "^7.2.4",
     "clean-css": "^4.1.9",
     "css": "^2.2.1",
+    "node-sass": "^4.7.2",
     "postcss": "^6.0.15",
     "stylus": "^0.54.5",
     "typescript": "^2.6.2"

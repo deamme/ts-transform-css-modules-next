@@ -43,6 +43,9 @@ Outputs a prettified styles.css and a minified styles.min.css
 const transformCSS = require('ts-transform-css-modules-next').default;
 
 transformCSS({
+  // Preprocessor of choice - "stylus" or "sass"
+  preprocessor: 'stylus'
+
   // Output path for final CSS output files (styles.css and styles.min.css)
   output: resolve(__dirname, './dist')
 

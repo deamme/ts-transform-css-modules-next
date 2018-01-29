@@ -4,15 +4,17 @@ import * as autoprefixer from 'autoprefixer'
 import * as CleanCSS from 'clean-css'
 import { resolve, dirname } from 'path'
 import { readFileSync, outputFileSync } from 'fs-extra'
-import { render } from 'stylus'
+import * as stylus from 'stylus'
+import * as sass from 'node-sass'
 import { parse, stringify } from 'css'
 
 import generateUniqueClassName from './utils/generateUniqueClassName'
 import updateSourceFile from './utils/updateSourceFile'
 
-const STYLUS_EXTENSION_REGEX = /\.styl$/
+const EXTENSION_REGEX = /\.(styl|scss)$/
 
 export interface Config {
+  preprocessor: 'stylus' | 'sass'
   autoprefix?: Boolean
   paths?: Array<String>
   output: String
@@ -102,15 +104,23 @@ const parseRules = (
 }
 
 const generateAtomicClasses = (filePath: string, CONFIG: Config) => {
-  const { autoprefix, paths, output } = CONFIG
+  const { autoprefix, paths, output, preprocessor } = CONFIG
   const data = readFileSync(filePath, 'utf8')
 
-  if (!data) throw 'Could not read stylus file path'
+  if (!data) throw 'Could not read stylus/sass file path'
 
-  const renderedCSS = render(data, {
-    filename: filePath,
-    paths: paths || [],
-  })
+  let renderedCSS
+  if (preprocessor === 'stylus') {
+    renderedCSS = stylus.render(data, {
+      filename: filePath,
+      paths: paths || [],
+    })
+  } else if (preprocessor === 'sass') {
+    renderedCSS = sass.renderSync({
+      data: data,
+      includePaths: paths ? [dirname(filePath)].concat(paths) : [dirname(filePath)]
+    }).css.toString()
+  }
 
   const parsedCSS = parse(renderedCSS)
   let importMap = []
@@ -163,7 +173,7 @@ export default (CONFIG?: Config) => {
       switch (node.kind) {
         case ts.SyntaxKind.ImportDeclaration:
           const stylesPath = (node as any).moduleSpecifier.text
-          if (STYLUS_EXTENSION_REGEX.test(stylesPath)) {
+          if (EXTENSION_REGEX.test(stylesPath)) {
             context['_importMap'] = generateAtomicClasses(
               resolve(dirname(context['filename']), stylesPath),
               CONFIG,

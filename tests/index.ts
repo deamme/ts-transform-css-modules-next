@@ -26,6 +26,7 @@ function compile(path: string, callback) {
   program.emit(undefined, compare, undefined, undefined, {
     before: [
       transform({
+        preprocessor: 'stylus',
         autoprefix: true,
         paths: [resolve(__dirname, '../tests/cases/styles')],
         output: resolve(__dirname, '../tests/dist'),
