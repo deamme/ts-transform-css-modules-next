@@ -52,14 +52,9 @@ Sparky.task('clean', _ => Sparky.src('dist/').clean('dist/'));
 Sparky.task('env', _ => (isProduction = true));
 Sparky.task('dev', ['clean', 'config'], async () => {
   fuse.dev();
-  app.hmr().watch('**', undefined, () => {
-    console.log('asdasdasd')
-  })
-  // app.hmr()
-  
-  // console.log(Sparky.watch('src/**/**.*')).prototype
+  app.hmr().watch();
+
   await Sparky.watch('src/**/**.styl', undefined, (event, file) => {
-    console.log(file, event)
     fuse.sendPageReload();
   }).exec()
   await fuse.run()
