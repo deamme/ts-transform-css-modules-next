@@ -7,7 +7,8 @@ const {
   WebIndexPlugin,
   QuantumPlugin,
 } = require('fuse-box');
-const transformCSS = require('../../../dist').default
+//const transformCSS = require('../../../dist').default
+const transformCSS = require('ts-transform-css-modules-next').default
 const transformInferno = require('ts-transform-inferno').default;
 let fuse, app;
 let isProduction = false;
@@ -23,10 +24,11 @@ Sparky.task('config', _ => {
     target: "browser",
     transformers: {
       before: [transformCSS({
+        preprocessor: 'stylus',
         autoprefix: true,
         paths: [path.resolve(__dirname, 'styles')],
         output: path.resolve(__dirname, 'dist')
-      }), transformInferno({ classwrap: false })],
+      }), transformInferno()],
     },
     plugins: [
       EnvPlugin({ NODE_ENV: isProduction ? 'production' : 'development' }),
