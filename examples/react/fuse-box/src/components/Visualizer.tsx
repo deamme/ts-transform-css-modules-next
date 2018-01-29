@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import './Visualizer.styl'
+import './Visualizer.scss'
 
 /*
  * This is example of Inferno functional component

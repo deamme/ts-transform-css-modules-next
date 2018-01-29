@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Incrementer } from "./components/Incrementer";
 
-import './index.styl'
+import './index.scss'
 
 const container = document.getElementById("app");
 
