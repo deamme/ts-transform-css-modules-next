@@ -1,0 +1,18 @@
+@import 'globals'
+@import '_animations'
+
+.block-large
+  height: ms(10, 'px', 10, golden)
+  width: ms(10, 'px', 10, golden)
+  background-color: $dark-red
+  center()
+
+.block-small
+  height: ms(3, 'px', 10, golden)
+  width: ms(3, 'px', 10, golden)
+  background-color: $red
+  display: inline-block
+
++sm-and-up()
+  .block-large
+    background-color: $green

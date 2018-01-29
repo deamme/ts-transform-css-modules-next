@@ -1,0 +1,1 @@
+export default <div styleName={"test"} className="test" />

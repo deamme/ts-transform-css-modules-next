@@ -1,0 +1,40 @@
+{
+  "name": "ts-transform-css-modules-next",
+  "version": "0.0.1",
+  "description": "Transforms styleName to atomic CSS className using compile time CSS module resolution.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "typescript",
+    "transform",
+    "css-modules",
+    "styleName",
+    "className",
+    "atomic"
+  ],
+  "scripts": {
+    "test": "rimraf tests/temp && ts-node tests/index.ts",
+    "build": "tsc",
+    "overwrite-references": "ts-node tests/overwriteReferences.ts",
+    "prepublishOnly": "rimraf dist && tsc"
+  },
+  "repository": "https://github.com/deamme/ts-transform-css-modules-next.git",
+  "author": "Deam Hansen",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^7.2.4",
+    "clean-css": "^4.1.9",
+    "css": "^2.2.1",
+    "postcss": "^6.0.15",
+    "stylus": "^0.54.5",
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "rimraf": "^2.6.2",
+    "ts-node": "^4.1.0",
+    "ts-transform-inferno": "^0.7.0"
+  }
+}
