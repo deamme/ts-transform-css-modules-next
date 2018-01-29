@@ -16,7 +16,7 @@ const EXTENSION_REGEX = /\.(styl|scss)$/
 export interface Config {
   preprocessor: 'stylus' | 'sass'
   autoprefix?: Boolean
-  paths?: Array<String>
+  paths?: ReadonlyArray<string>
   output: String
 }
 
