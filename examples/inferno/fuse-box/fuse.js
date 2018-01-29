@@ -61,11 +61,6 @@ Sparky.task('dev', ['clean', 'config'], async () => {
   
 });
 
-Sparky.task('test', async () => {
-  console.log('ASDASDASDADS')
-  await fuse.sendPageReload();
-})
-
 Sparky.task('prod', ['clean', 'env', 'config'], _ => {
   fuse.dev({ reload: true }); // remove after demo
   return fuse.run();
