@@ -20,7 +20,7 @@ export interface Config {
   output: String
 }
 
-let _counter = 1
+let _counter = 30
 let _CSS = ''
 let _declarationCache = {}
 let _mediaCache = {}
