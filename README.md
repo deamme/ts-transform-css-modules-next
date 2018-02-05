@@ -2,7 +2,7 @@
 [![travis](https://travis-ci.org/deamme/ts-transform-classcat.svg?branch=master)](https://travis-ci.org/deamme/ts-transform-classcat)
 [![npm version](https://badge.fury.io/js/ts-transform-css-modules-next.svg)](https://badge.fury.io/js/ts-transform-css-modules-next)
 
-Transform JSX styleName prop to className corresponding atomic CSS classes. Large projects will benifit greatly because each CSS declaration is being reused effeciently.
+Transform JSX styleName prop to className corresponding atomic CSS classes. Large projects will benefit greatly because each CSS declaration is being reused effeciently.
 
 ### Before transpilation:
 
