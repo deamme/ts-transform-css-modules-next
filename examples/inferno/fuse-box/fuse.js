@@ -56,7 +56,7 @@ Sparky.task('dev', ['clean', 'config'], async () => {
   fuse.dev();
   app.hmr().watch();
 
-  await Sparky.watch('src/**/**.styl', undefined, (event, file) => {
+  await Sparky.watch('src/**/**.*', undefined, (event, file) => {
     fuse.sendPageReload();
   }).exec()
   await fuse.run()

@@ -3,7 +3,6 @@ import Component from "inferno-component";
 import { Incrementer } from "./components/Incrementer";
 
 import './index.styl'
-// import './styles.min.css'
 
 const container = document.getElementById("app");
 
