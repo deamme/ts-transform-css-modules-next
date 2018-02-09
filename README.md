@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/ts-transform-css-modules-next.svg)](https://badge.fury.io/js/ts-transform-css-modules-next)
 
 Transform JSX styleName prop to className corresponding atomic CSS classes. Large projects will benefit greatly because each CSS declaration is being reused effeciently.
+[Check out the introductory blog post](https://medium.com/@Deam/css-modules-next-intro-a4ab14fe572f).
 
 ### Before transpilation:
 
