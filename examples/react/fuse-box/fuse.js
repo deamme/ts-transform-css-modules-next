@@ -19,7 +19,6 @@ Sparky.task('config', _ => {
     output: 'dist/$name.js',
     cache: false,
     sourceMaps: !isProduction,
-    useJsNext: true,
     target: "browser",
     transformers: {
       before: [transformCSS({
@@ -31,9 +30,6 @@ Sparky.task('config', _ => {
     },
     plugins: [
       EnvPlugin({ NODE_ENV: isProduction ? 'production' : 'development' }),
-      CSSPlugin({
-        outFile: (file) => path.resolve(__dirname, 'dist') + `/${file}`
-      }),
       WebIndexPlugin({
         title: 'Inferno Typescript FuseBox Example',
         template: 'src/index.html',
