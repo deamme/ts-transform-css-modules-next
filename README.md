@@ -1,4 +1,4 @@
-# ts-transform-css-modules-next (WIP)
+# ts-transform-css-modules-next
 [![travis](https://travis-ci.org/deamme/ts-transform-classcat.svg?branch=master)](https://travis-ci.org/deamme/ts-transform-classcat)
 [![npm version](https://badge.fury.io/js/ts-transform-css-modules-next.svg)](https://badge.fury.io/js/ts-transform-css-modules-next)
 
