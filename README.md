@@ -65,6 +65,8 @@ transformCSS({
 Look into the `examples` folder.
 To understand commands associated with each project look into `package.json` and its scripts.
 
+Webpack example is still work in progress.
+
 ## Testing
 You can run the following command to test: `npm test`
 
