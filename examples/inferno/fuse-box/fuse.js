@@ -56,7 +56,6 @@ Sparky.task('dev', ['clean', 'config'], async () => {
     fuse.sendPageReload();
   }).exec()
   await fuse.run()
-  
 });
 
 Sparky.task('prod', ['clean', 'env', 'config'], _ => {

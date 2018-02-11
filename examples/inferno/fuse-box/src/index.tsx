@@ -1,5 +1,4 @@
-import { render, version } from "inferno";
-import Component from "inferno-component";
+import { render, version, Component } from "inferno";
 import { Incrementer } from "./components/Incrementer";
 
 import './index.styl'
@@ -12,13 +11,13 @@ class MyComponent extends Component<any, any> {
   constructor(props, context) {
     super(props, context);
 
-    this.tsxVersion = 2.48; /* This is typed value */
+    this.tsxVersion = 2.71; /* This is typed value */
   }
 
   public render() {
     return (
       <div>
-        <h1>{`Welcome to Inferno TSX version ${this.tsxVersion}`}</h1>
+        <h1>{`Welcome to Inferno ${version} TSX ${this.tsxVersion}`}</h1>
         <Incrementer name={"Crazy button"} />
       </div>
     );
