@@ -274,7 +274,7 @@ export default (CONFIG?: Config) => {
           classNameProp.initializer = ts.createJsxExpression(
             undefined,
             ts.createAdd(
-              classNamePropExp,
+              ts.createAdd(classNamePropExp, ts.createLiteral(' ')),
               createGetClassNamesCall(styleNamePropExp),
             ),
           )
@@ -285,7 +285,7 @@ export default (CONFIG?: Config) => {
         ) {
           classNameProp.initializer = ts.createJsxExpression(
             undefined,
-            ts.createAdd(classNamePropExp, ts.createLiteral(styleNamePropText)),
+            ts.createAdd(ts.createAdd(classNamePropExp, ts.createLiteral(' ')), ts.createLiteral(styleNamePropText)),
           )
         } else if (
           styleNamePropKind === kindJsxExp &&
@@ -294,7 +294,7 @@ export default (CONFIG?: Config) => {
           classNameProp.initializer = ts.createJsxExpression(
             undefined,
             ts.createAdd(
-              classNamePropInit,
+              ts.createAdd(classNamePropInit, ts.createLiteral(' ')),
               createGetClassNamesCall(styleNamePropExp),
             ),
           )
