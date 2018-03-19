@@ -30,6 +30,7 @@ function compile(path: string, callback) {
         autoprefix: true,
         paths: [resolve(__dirname, '../tests/cases/styles')],
         output: resolve(__dirname, '../tests/dist'),
+        globalPath: resolve(__dirname, '../tests/cases/styles/globals.styl')
       }),
     ],
   })

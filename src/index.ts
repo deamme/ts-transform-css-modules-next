@@ -18,6 +18,7 @@ export interface Config {
   autoprefix?: Boolean
   paths?: ReadonlyArray<string>
   output: String
+  globalPath?: string
 }
 
 let _counter = 30
@@ -104,18 +105,32 @@ const parseRules = (
 }
 
 const generateAtomicClasses = (filePath: string, CONFIG: Config) => {
-  const { autoprefix, paths, output, preprocessor } = CONFIG
+  const { autoprefix, paths, output, preprocessor, globalPath } = CONFIG
+  const globalData = readFileSync(globalPath, 'utf8')
   const data = readFileSync(filePath, 'utf8')
 
   if (!data) throw 'Could not read stylus/sass file path'
 
+  let globalRenderedCSS
   let renderedCSS
   if (preprocessor === 'stylus') {
+    if (globalPath) {
+      globalRenderedCSS = stylus.render(globalData, {
+        filename: globalPath,
+        paths: paths || [],
+      })
+    }
     renderedCSS = stylus.render(data, {
       filename: filePath,
       paths: paths || [],
     })
   } else if (preprocessor === 'sass') {
+    if (globalPath) {
+      globalRenderedCSS = sass.renderSync({
+        data: globalData,
+        includePaths: paths ? [dirname(globalPath)].concat(paths) : [dirname(globalPath)]
+      }).css.toString()
+    }
     renderedCSS = sass.renderSync({
       data: data,
       includePaths: paths ? [dirname(filePath)].concat(paths) : [dirname(filePath)]
@@ -134,11 +149,11 @@ const generateAtomicClasses = (filePath: string, CONFIG: Config) => {
 
   let _finalCSS = ''
   if (autoprefix) {
-    _finalCSS = postCSS([autoprefixer]).process(_CSS + mediaCSS, {
+    _finalCSS = postCSS([autoprefixer]).process(globalRenderedCSS, {
       from: undefined,
     }).css
   } else {
-    _finalCSS = _CSS + mediaCSS
+    _finalCSS = globalRenderedCSS + _CSS + mediaCSS
   }
 
   outputFileSync(

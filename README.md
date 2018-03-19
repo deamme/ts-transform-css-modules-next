@@ -56,6 +56,9 @@ transformCSS({
   // Optional global paths for Stylus @import statements 
   paths: [resolve(__dirname, './styles')],
 
+  // Optional global sass/stylus file (you should import normalize.css and custom global classnames here)
+  globalPath: resolve(__dirname, './styles/globals')
+
   // Optional autoprefix
   autoprefix: true
 })
