@@ -149,7 +149,7 @@ const generateAtomicClasses = (filePath: string, CONFIG: Config) => {
 
   let _finalCSS = ''
   if (autoprefix) {
-    _finalCSS = postCSS([autoprefixer]).process(globalRenderedCSS, {
+    _finalCSS = postCSS([autoprefixer]).process(globalRenderedCSS + _CSS + mediaCSS, {
       from: undefined,
     }).css
   } else {
