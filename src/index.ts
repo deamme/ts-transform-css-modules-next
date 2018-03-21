@@ -193,10 +193,7 @@ export default (CONFIG?: Config) => {
               resolve(dirname(context['filename']), stylesPath),
               CONFIG,
             )
-            return ts.createCall(ts.createIdentifier('require'), [], [
-                ts.createLiteral(stylesPath)
-              ],
-            )
+            return null
           }
           return node
 
