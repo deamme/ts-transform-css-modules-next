@@ -1,6 +1,6 @@
 {
   "name": "ts-transform-css-modules-next",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Transforms styleName to atomic CSS className using compile time CSS module resolution.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
