@@ -40,7 +40,7 @@ Outputs a prettified styles.css and a minified styles.min.css
 }
 ```
 # Install
-`yarn add -D ts-transform-css-modules-next`
+`yarn add -D ts-transform-css-modules-next typescript`
 
 ## General usage
 ```javascript
