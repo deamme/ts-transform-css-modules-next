@@ -5,6 +5,12 @@
 Transform JSX styleName prop to className corresponding atomic CSS classes. Large projects will benefit greatly because each CSS declaration is being reused effeciently.
 [Check out the introductory blog post](https://medium.com/@Deam/css-modules-next-intro-a4ab14fe572f).
 
+### Installation:
+
+```sh
+npm i --save-dev ts-transform-css-modules-next typescript
+```
+
 ### Before transpilation:
 
 index.tsx
